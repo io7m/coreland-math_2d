@@ -4,7 +4,8 @@ default: all
 
 all:\
 geom_2d-points.ali geom_2d-points.o geom_2d-triangles.ali geom_2d-triangles.o \
-geom_2d-types.ali geom_2d-types.o geom_2d.ali geom_2d.o
+geom_2d-trigonometry.ali geom_2d-trigonometry.o geom_2d-types.ali \
+geom_2d-types.o geom_2d.ali geom_2d.o
 
 ada-bind:\
 conf-adabind conf-systype conf-adatype
@@ -60,6 +61,13 @@ geom_2d-triangles.o geom_2d-triangles.ali:\
 ada-compile geom_2d-triangles.adb geom_2d.ali geom_2d-triangles.ads
 	./ada-compile geom_2d-triangles.adb
 
+geom_2d-trigonometry.ads:\
+geom_2d.ali geom_2d-types.ali
+
+geom_2d-trigonometry.o geom_2d-trigonometry.ali:\
+ada-compile geom_2d-trigonometry.adb geom_2d.ali geom_2d-trigonometry.ads
+	./ada-compile geom_2d-trigonometry.adb
+
 geom_2d-types.o geom_2d-types.ali:\
 ada-compile geom_2d-types.ads geom_2d.ali geom_2d-types.ads
 	./ada-compile geom_2d-types.ads
@@ -91,7 +99,8 @@ clean-all: obj_clean ext_clean
 clean: obj_clean
 obj_clean:
 	rm -f geom_2d-points.ali geom_2d-points.o geom_2d-triangles.ali \
-	geom_2d-triangles.o geom_2d-types.ali geom_2d-types.o geom_2d.ali geom_2d.o
+	geom_2d-triangles.o geom_2d-trigonometry.ali geom_2d-trigonometry.o \
+	geom_2d-types.ali geom_2d-types.o geom_2d.ali geom_2d.o
 ext_clean:
 	rm -f conf-adatype conf-cctype conf-ldtype conf-systype mk-ctxt
 
