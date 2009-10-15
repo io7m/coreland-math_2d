@@ -5,11 +5,9 @@ package body Geom_2D.Points is
 
   function Distance
     (Point_A : in Types.Point_t;
-     Point_B : in Types.Point_t) return Types.Real_Type'Base
-  is
-    Point_Sub : constant Types.Point_t := Point_A - Point_B;
+     Point_B : in Types.Point_t) return Types.Real_Type'Base is
   begin
-    return Types.Functions.Sqrt (Point_Sub * Point_Sub);
+    return Vectors.Magnitude (Types.Vector_t (Point_A - Point_B));
   end Distance;
 
 end Geom_2D.Points;
