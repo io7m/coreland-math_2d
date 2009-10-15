@@ -4,17 +4,19 @@ package body Geom_2D.Triangles is
   use type Types.Point_t;
 
   function Orthocenter
-    (T : in Types.Triangle_t) return Types.Point_t is
+    (Triangle : in Types.Triangle_t) return Types.Point_t is
   begin
-    return (T (1) + T (2) + T (3)) / 3.0;
+    return (Triangle (1)
+          + Triangle (2)
+          + Triangle (3)) / 3.0;
   end Orthocenter;
 
   function Area
-    (T : in Types.Triangle_t) return Types.Real_Type'Base
+    (Triangle : in Types.Triangle_t) return Types.Real_Type'Base
   is
-    Point_A : Types.Point_t renames T (1);
-    Point_B : Types.Point_t renames T (2);
-    Point_C : Types.Point_t renames T (3);
+    Point_A : Types.Point_t renames Triangle (1);
+    Point_B : Types.Point_t renames Triangle (2);
+    Point_C : Types.Point_t renames Triangle (3);
 
     A : constant Types.Real_Type'Base := Point_A (1) - Point_C (1);
     B : constant Types.Real_Type'Base := Point_A (2) - Point_C (2);
@@ -23,5 +25,26 @@ package body Geom_2D.Triangles is
   begin
     return abs ((A * D) - (B * C)) / 2.0;
   end Area;
+
+  function Point_Is_Inside
+    (Triangle : in Types.Triangle_t;
+     Point    : in Types.Point_t) return Boolean
+  is
+    Point_A    : Types.Point_t renames Triangle (1);
+    Point_B    : Types.Point_t renames Triangle (2);
+    Point_C    : Types.Point_t renames Triangle (3);
+
+    Sub_Tri_A  : constant Types.Triangle_t     := (Point, Point_A, Point_B);
+    Sub_Tri_B  : constant Types.Triangle_t     := (Point, Point_B, Point_C);
+    Sub_Tri_C  : constant Types.Triangle_t     := (Point, Point_A, Point_C);
+
+    Base_Area  : constant Types.Real_Type'Base := Area (Triangle);
+    Area_A     : constant Types.Real_Type'Base := Area (Sub_Tri_A);
+    Area_B     : constant Types.Real_Type'Base := Area (Sub_Tri_B);
+    Area_C     : constant Types.Real_Type'Base := Area (Sub_Tri_C);
+    Total_Area : constant Types.Real_Type'Base := Area_A + Area_B + Area_C;
+  begin
+    return Total_Area <= Base_Area;
+  end Point_Is_Inside;
 
 end Geom_2D.Triangles;

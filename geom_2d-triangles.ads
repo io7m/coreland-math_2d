@@ -6,9 +6,13 @@ generic
 package Geom_2D.Triangles is
 
   function Orthocenter
-    (T : in Types.Triangle_t) return Types.Point_t;
+    (Triangle : in Types.Triangle_t) return Types.Point_t;
 
   function Area
-    (T : in Types.Triangle_t) return Types.Real_Type'Base;
+    (Triangle : in Types.Triangle_t) return Types.Real_Type'Base;
+
+  function Point_Is_Inside
+    (Triangle : in Types.Triangle_t;
+     Point    : in Types.Point_t) return Boolean;
 
 end Geom_2D.Triangles;
