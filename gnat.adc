@@ -1,0 +1,10 @@
+
+-- ./geom_2d-triangles.apk
+pragma source_file_name(Geom_2D.Triangles, spec_file_name => "geom_2d-triangles.ads");
+pragma source_file_name(Geom_2D.Triangles, body_file_name => "geom_2d-triangles.adb");
+
+-- ./geom_2d-types.apk
+pragma source_file_name(Geom_2D.Types, spec_file_name => "geom_2d-types.ads");
+
+-- ./geom_2d.apk
+pragma source_file_name(Geom_2D, spec_file_name => "geom_2d.ads");
