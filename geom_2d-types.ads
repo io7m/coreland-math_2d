@@ -5,6 +5,7 @@ generic
   type Real_Type is digits <>;
 
 package Geom_2D.Types is
+
   package Functions is new Ada.Numerics.Generic_Elementary_Functions (Real_Type);
   package Arrays    is new Ada.Numerics.Generic_Real_Arrays (Real_Type);
 

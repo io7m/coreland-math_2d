@@ -3,14 +3,6 @@ package body Geom_2D.Triangles is
   use type Types.Real_Type;
   use type Types.Point_t;
 
-  function Orthocenter
-    (Triangle : in Types.Triangle_t) return Types.Point_t is
-  begin
-    return (Triangle (1)
-          + Triangle (2)
-          + Triangle (3)) / 3.0;
-  end Orthocenter;
-
   function Area
     (Triangle : in Types.Triangle_t) return Types.Real_Type'Base
   is
@@ -25,6 +17,20 @@ package body Geom_2D.Triangles is
   begin
     return abs ((A * D) - (B * C)) / 2.0;
   end Area;
+
+  function Orthocenter
+    (Triangle : in Types.Triangle_t) return Types.Point_t is
+  begin
+    return (Triangle (1)
+          + Triangle (2)
+          + Triangle (3)) / 3.0;
+  end Orthocenter;
+
+  function Perimeter
+    (Triangle : in Types.Triangle_t) return Types.Real_Type'Base is
+  begin
+    return 0.0;
+  end Perimeter;
 
   function Point_Is_Inside
     (Triangle : in Types.Triangle_t;
