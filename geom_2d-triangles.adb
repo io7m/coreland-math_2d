@@ -27,9 +27,17 @@ package body Geom_2D.Triangles is
   end Orthocenter;
 
   function Perimeter
-    (Triangle : in Types.Triangle_t) return Types.Real_Type'Base is
+    (Triangle : in Types.Triangle_t) return Types.Real_Type'Base
+  is
+    Point_A     : Types.Point_t renames Triangle (1);
+    Point_B     : Types.Point_t renames Triangle (2);
+    Point_C     : Types.Point_t renames Triangle (3);
+
+    Distance_AB : constant Types.Real_Type'Base := Points.Distance (Point_A, Point_B);
+    Distance_BC : constant Types.Real_Type'Base := Points.Distance (Point_B, Point_C);
+    Distance_CA : constant Types.Real_Type'Base := Points.Distance (Point_C, Point_A);
   begin
-    return 0.0;
+    return Distance_AB + Distance_BC + Distance_CA;
   end Perimeter;
 
   function Point_Is_Inside
