@@ -5,11 +5,16 @@ package body Geom_2D.Vectors is
   function Magnitude
     (Vector : in Types.Vector_t) return Types.Real_Type'Base is
   begin
-    return Types.Functions.Sqrt
-      (Inner_Product
-        (Vector_A => Vector,
-         Vector_B => Vector));
+    return Types.Functions.Sqrt (Square_Magnitude (Vector));
   end Magnitude;
+
+  function Square_Magnitude
+    (Vector : in Types.Vector_t) return Types.Real_Type'Base is
+  begin
+    return Inner_Product
+      (Vector_A => Vector,
+       Vector_B => Vector);
+  end Square_Magnitude;
 
   function Normalize
     (Vector : in Types.Vector_t) return Types.Vector_t

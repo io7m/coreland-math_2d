@@ -24,6 +24,10 @@ package Geom_2D.Vectors is
     (Vector : in Types.Vector_t) return Types.Real_Type'Base;
   pragma Inline (Magnitude);
 
+  function Square_Magnitude
+    (Vector : in Types.Vector_t) return Types.Real_Type'Base;
+  pragma Inline (Square_Magnitude);
+
   function Normalize
     (Vector : in Types.Vector_t) return Types.Vector_t;
   procedure Normalize
