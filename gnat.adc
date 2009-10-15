@@ -14,5 +14,9 @@ pragma source_file_name(Geom_2D.Trigonometry, body_file_name => "geom_2d-trigono
 -- ./geom_2d-types.apk
 pragma source_file_name(Geom_2D.Types, spec_file_name => "geom_2d-types.ads");
 
+-- ./geom_2d-vectors.apk
+pragma source_file_name(Geom_2D.Vectors, spec_file_name => "geom_2d-vectors.ads");
+pragma source_file_name(Geom_2D.Vectors, body_file_name => "geom_2d-vectors.adb");
+
 -- ./geom_2d.apk
 pragma source_file_name(Geom_2D, spec_file_name => "geom_2d.ads");
