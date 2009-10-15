@@ -1,4 +1,8 @@
 
+-- ./geom_2d-points.apk
+pragma source_file_name(Geom_2D.Points, spec_file_name => "geom_2d-points.ads");
+pragma source_file_name(Geom_2D.Points, body_file_name => "geom_2d-points.adb");
+
 -- ./geom_2d-triangles.apk
 pragma source_file_name(Geom_2D.Triangles, spec_file_name => "geom_2d-triangles.ads");
 pragma source_file_name(Geom_2D.Triangles, body_file_name => "geom_2d-triangles.adb");
