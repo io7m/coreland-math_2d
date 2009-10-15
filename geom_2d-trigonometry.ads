@@ -1,7 +1,7 @@
 with Geom_2D.Types;
 
 generic
-  with package Types  is new Geom_2D.Types (<>);
+  with package Types is new Geom_2D.Types (<>);
 
 package Geom_2D.Trigonometry is
 
