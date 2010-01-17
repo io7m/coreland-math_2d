@@ -1,1 +1,4 @@
-This package provides a set of subprograms for working with two-dimensional geometric forms.
+<p>This package provides a set of subprograms for working with
+two-dimensional geometric forms.</p>
+<p>The package used to be known as <a href="/code/geom_2d">Geom_2D</a>
+but it became clear that it was outgrowing the name and was renamed.</p>

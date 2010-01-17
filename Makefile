@@ -3,9 +3,10 @@
 default: all
 
 all:\
-geom_2d-points.ali geom_2d-points.o geom_2d-triangles.ali geom_2d-triangles.o \
-geom_2d-trigonometry.ali geom_2d-trigonometry.o geom_2d-types.ali \
-geom_2d-types.o geom_2d-vectors.ali geom_2d-vectors.o geom_2d.ali geom_2d.o
+math_2d-points.ali math_2d-points.o math_2d-triangles.ali math_2d-triangles.o \
+math_2d-trigonometry.ali math_2d-trigonometry.o math_2d-types.ali \
+math_2d-types.o math_2d-vectors.ali math_2d-vectors.o math_2d.a math_2d.ali \
+math_2d.o
 
 ada-bind:\
 conf-adabind conf-systype conf-adatype
@@ -47,41 +48,47 @@ conf-systype:\
 mk-systype
 	./mk-systype > conf-systype.tmp && mv conf-systype.tmp conf-systype
 
-geom_2d-points.ads:\
-geom_2d.ali geom_2d-types.ali
+math_2d-points.ads:\
+math_2d.ali math_2d-types.ali math_2d-vectors.ali
 
-geom_2d-points.o geom_2d-points.ali:\
-ada-compile geom_2d-points.adb geom_2d.ali geom_2d-points.ads
-	./ada-compile geom_2d-points.adb
+math_2d-points.o math_2d-points.ali:\
+ada-compile math_2d-points.adb math_2d.ali math_2d-points.ads
+	./ada-compile math_2d-points.adb
 
-geom_2d-triangles.ads:\
-geom_2d.ali geom_2d-types.ali geom_2d-points.ali
+math_2d-triangles.ads:\
+math_2d.ali math_2d-types.ali math_2d-points.ali math_2d-vectors.ali
 
-geom_2d-triangles.o geom_2d-triangles.ali:\
-ada-compile geom_2d-triangles.adb geom_2d.ali geom_2d-triangles.ads
-	./ada-compile geom_2d-triangles.adb
+math_2d-triangles.o math_2d-triangles.ali:\
+ada-compile math_2d-triangles.adb math_2d.ali math_2d-triangles.ads
+	./ada-compile math_2d-triangles.adb
 
-geom_2d-trigonometry.ads:\
-geom_2d.ali geom_2d-types.ali
+math_2d-trigonometry.ads:\
+math_2d.ali math_2d-types.ali
 
-geom_2d-trigonometry.o geom_2d-trigonometry.ali:\
-ada-compile geom_2d-trigonometry.adb geom_2d.ali geom_2d-trigonometry.ads
-	./ada-compile geom_2d-trigonometry.adb
+math_2d-trigonometry.o math_2d-trigonometry.ali:\
+ada-compile math_2d-trigonometry.adb math_2d.ali math_2d-trigonometry.ads
+	./ada-compile math_2d-trigonometry.adb
 
-geom_2d-types.o geom_2d-types.ali:\
-ada-compile geom_2d-types.ads geom_2d.ali geom_2d-types.ads
-	./ada-compile geom_2d-types.ads
+math_2d-types.o math_2d-types.ali:\
+ada-compile math_2d-types.ads math_2d.ali math_2d-types.ads
+	./ada-compile math_2d-types.ads
 
-geom_2d-vectors.ads:\
-geom_2d.ali geom_2d-types.ali
+math_2d-vectors.ads:\
+math_2d.ali math_2d-types.ali
 
-geom_2d-vectors.o geom_2d-vectors.ali:\
-ada-compile geom_2d-vectors.adb geom_2d.ali geom_2d-vectors.ads
-	./ada-compile geom_2d-vectors.adb
+math_2d-vectors.o math_2d-vectors.ali:\
+ada-compile math_2d-vectors.adb math_2d.ali math_2d-vectors.ads
+	./ada-compile math_2d-vectors.adb
 
-geom_2d.o geom_2d.ali:\
-ada-compile geom_2d.ads geom_2d.ads
-	./ada-compile geom_2d.ads
+math_2d.a:\
+cc-slib math_2d.sld math_2d-points.o math_2d-triangles.o math_2d-trigonometry.o \
+math_2d-types.o math_2d-vectors.o math_2d.o
+	./cc-slib math_2d math_2d-points.o math_2d-triangles.o math_2d-trigonometry.o \
+	math_2d-types.o math_2d-vectors.o math_2d.o
+
+math_2d.o math_2d.ali:\
+ada-compile math_2d.ads math_2d.ads
+	./ada-compile math_2d.ads
 
 mk-adatype:\
 conf-adacomp conf-systype
@@ -105,10 +112,10 @@ conf-cc conf-ld
 clean-all: obj_clean ext_clean
 clean: obj_clean
 obj_clean:
-	rm -f geom_2d-points.ali geom_2d-points.o geom_2d-triangles.ali \
-	geom_2d-triangles.o geom_2d-trigonometry.ali geom_2d-trigonometry.o \
-	geom_2d-types.ali geom_2d-types.o geom_2d-vectors.ali geom_2d-vectors.o \
-	geom_2d.ali geom_2d.o
+	rm -f math_2d-points.ali math_2d-points.o math_2d-triangles.ali \
+	math_2d-triangles.o math_2d-trigonometry.ali math_2d-trigonometry.o \
+	math_2d-types.ali math_2d-types.o math_2d-vectors.ali math_2d-vectors.o \
+	math_2d.a math_2d.ali math_2d.o
 ext_clean:
 	rm -f conf-adatype conf-cctype conf-ldtype conf-systype mk-ctxt
 

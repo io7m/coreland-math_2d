@@ -1,22 +1,22 @@
 
--- ./geom_2d-points.apk
-pragma source_file_name(Geom_2D.Points, spec_file_name => "geom_2d-points.ads");
-pragma source_file_name(Geom_2D.Points, body_file_name => "geom_2d-points.adb");
+-- ./math_2d-points.apk
+pragma source_file_name(Math_2D.Points, spec_file_name => "math_2d-points.ads");
+pragma source_file_name(Math_2D.Points, body_file_name => "math_2d-points.adb");
 
--- ./geom_2d-triangles.apk
-pragma source_file_name(Geom_2D.Triangles, spec_file_name => "geom_2d-triangles.ads");
-pragma source_file_name(Geom_2D.Triangles, body_file_name => "geom_2d-triangles.adb");
+-- ./math_2d-triangles.apk
+pragma source_file_name(Math_2D.Triangles, spec_file_name => "math_2d-triangles.ads");
+pragma source_file_name(Math_2D.Triangles, body_file_name => "math_2d-triangles.adb");
 
--- ./geom_2d-trigonometry.apk
-pragma source_file_name(Geom_2D.Trigonometry, spec_file_name => "geom_2d-trigonometry.ads");
-pragma source_file_name(Geom_2D.Trigonometry, body_file_name => "geom_2d-trigonometry.adb");
+-- ./math_2d-trigonometry.apk
+pragma source_file_name(Math_2D.Trigonometry, spec_file_name => "math_2d-trigonometry.ads");
+pragma source_file_name(Math_2D.Trigonometry, body_file_name => "math_2d-trigonometry.adb");
 
--- ./geom_2d-types.apk
-pragma source_file_name(Geom_2D.Types, spec_file_name => "geom_2d-types.ads");
+-- ./math_2d-types.apk
+pragma source_file_name(Math_2D.Types, spec_file_name => "math_2d-types.ads");
 
--- ./geom_2d-vectors.apk
-pragma source_file_name(Geom_2D.Vectors, spec_file_name => "geom_2d-vectors.ads");
-pragma source_file_name(Geom_2D.Vectors, body_file_name => "geom_2d-vectors.adb");
+-- ./math_2d-vectors.apk
+pragma source_file_name(Math_2D.Vectors, spec_file_name => "math_2d-vectors.ads");
+pragma source_file_name(Math_2D.Vectors, body_file_name => "math_2d-vectors.adb");
 
--- ./geom_2d.apk
-pragma source_file_name(Geom_2D, spec_file_name => "geom_2d.ads");
+-- ./math_2d.apk
+pragma source_file_name(Math_2D, spec_file_name => "math_2d.ads");
