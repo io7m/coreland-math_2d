@@ -1,5 +1,3 @@
-with Ada.Numerics;
-
 package body Math_2D.Trigonometry is
 
   function To_Radians (Degrees : in Degrees_t) return Radians_t is
